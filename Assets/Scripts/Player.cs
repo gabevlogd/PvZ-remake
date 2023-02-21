@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public List<Card> Hand = new List<Card>();
+    public Player Instance;
     public Deck deck;
+    public Squad squad;
     public int LifePoint;
     public int ManaBase;
     public int CardsInHand;
-    public Squad squad;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
-        deck = new Deck();
         LifePoint = 20;
         ManaBase = 1;
     }

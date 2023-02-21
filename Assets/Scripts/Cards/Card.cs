@@ -2,69 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card : MonoBehaviour
+public class Card : Object
 {
-    public string Name;
-    public string Effect;
-    public int ManaCost;
-    public bool Available;
+    public Trick Data;
     public CardType cardType;
-    public CardSubtype cardSubtype;
 
-    public Card(CardType type, CardSubtype subtype)
+    public Card(Squad squad, CardType type)
     {
+        //print("enter");
         cardType = type;
-        cardSubtype = subtype;
-        Available = true;
+        InitializeCard(squad);
     }
-    public virtual void InitializedCard()
+    public virtual void InitializeCard(Squad squad)
     {
-        if(cardType == CardType.ZombieCard)
+        if(squad == Squad.Zombies)
         {
-            switch (cardSubtype)
-            {
-                case CardSubtype.TrickA:
-                    break;
-                case CardSubtype.TrickB:
-                    break;
-                case CardSubtype.TrickC:
-                    break;
-                case CardSubtype.TrickD:
-                    break;
-                case CardSubtype.TrickE:
-                    break;
-            }
+            Data = CardsInventory.Instance.ZombiesCards[(int)cardType];
+            Data.Counter++;
         }
         else
         {
-            switch (cardSubtype)
-            {
-                case CardSubtype.TrickA:
-                    break;
-                case CardSubtype.TrickB:
-                    break;
-                case CardSubtype.TrickC:
-                    break;
-                case CardSubtype.TrickD:
-                    break;
-                case CardSubtype.TrickE:
-                    break;
-            }
+            Data = CardsInventory.Instance.PlantsCards[(int)cardType];
+            Data.Counter++;
+
         }
     }
-    public void ExecuteEffect() { }
-    public void PlaceCard() { }
-    public void ShowInfo() { }
+
+    
 
 }
 
 public enum CardType
-{
-    ZombieCard,
-    PlantCard
-}
-
-public enum CardSubtype
 {
     TrickA,
     TrickB,
@@ -77,3 +45,4 @@ public enum CardSubtype
     CreatureD,
     CreatureE
 }
+

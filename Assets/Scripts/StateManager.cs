@@ -11,9 +11,10 @@ public class StateManager : MonoBehaviour
     {
         InitializeStates();
         CurrentState = States[StateType.Mulligan];
+        CurrentState.Enter();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         CurrentState.StateUpdate();
