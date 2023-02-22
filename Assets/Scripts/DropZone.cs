@@ -3,29 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class DropZone : MonoBehaviour
 {
     public ZoneType zoneType;
-    public void OnPointerEnter(PointerEventData eventData)
+    public bool Selected;
+
+    private void OnMouseEnter()
     {
-        Debug.Log("OnPointerEnter");
+        //print("enter");
+        Selected = true;
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    private void OnMouseExit()
     {
-        Debug.Log("OnPointerExit");
+        //print("exit");
+        Selected = false;
     }
 
-    public void OnDrop(PointerEventData eventData)
+    private void OnMouseUp()
     {
-        Debug.Log("OnDrop");
-        Draggable draggable = eventData.pointerDrag.GetComponent<Draggable>();
-        if(zoneType == ZoneType.Battlefield)
-        {
-            
-        }
-        draggable.ParentToReturnTo = transform;
-
+        //print("Drop");
     }
 
 }
@@ -35,3 +32,26 @@ public enum ZoneType
     Battlefield,
     Hand
 }
+
+//public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+//{
+//    public ZoneType zoneType;
+//    public void OnPointerEnter(PointerEventData eventData)
+//    {
+//        Debug.Log("OnPointerEnter");
+//    }
+
+//    public void OnPointerExit(PointerEventData eventData)
+//    {
+//        Debug.Log("OnPointerExit");
+//    }
+
+//    public void OnDrop(PointerEventData eventData)
+//    {
+//        Debug.Log("OnDrop");
+//        //Draggable draggable = eventData.pointerDrag.GetComponent<Draggable>();
+
+
+//    }
+
+//}
