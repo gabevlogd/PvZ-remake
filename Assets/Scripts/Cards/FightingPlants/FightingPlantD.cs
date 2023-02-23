@@ -9,13 +9,14 @@ public class FightingPlantD : BaseCard
     private string m_NAME = "Burning Log";
     private string m_EFFECT = "The seeds shooter behind him gets +2/+0";
     private int m_MANA_COST = 1;
+    private int m_COUNTER_MAX_VALUE = 6;
     [HideInInspector] public int POWER = 0;
     [HideInInspector] public int DEFENSE = 3;
 
     public Text Power;
     public Text Defense;
 
-    private void Start()
+    private void Awake()
     {
         initializeCard();
     }
@@ -25,6 +26,7 @@ public class FightingPlantD : BaseCard
         Name.text = m_NAME;
         Effect.text = m_EFFECT;
         ManaCost.text = m_MANA_COST.ToString();
+        Counter = m_COUNTER_MAX_VALUE;
         Power.text = POWER.ToString();
         Defense.text = DEFENSE.ToString();
     }

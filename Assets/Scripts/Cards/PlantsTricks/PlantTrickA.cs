@@ -9,8 +9,9 @@ public class PlantTrickA : BaseCard
     private string m_NAME = "The Big Freeze";
     private string m_EFFECT = "freeze a zombie, draw a card";
     private int m_MANA_COST = 1;
+    private int m_COUNTER_MAX_VALUE = 2;
 
-    private void Start()
+    private void Awake()
     {
         initializeCard();
     }
@@ -20,6 +21,7 @@ public class PlantTrickA : BaseCard
         Name.text = m_NAME;
         Effect.text = m_EFFECT;
         ManaCost.text = m_MANA_COST.ToString();
+        Counter = m_COUNTER_MAX_VALUE;
     }
 }
 

@@ -7,8 +7,9 @@ public class PlantTrickB : BaseCard
     private string m_NAME = "Precise Explosion";
     private string m_EFFECT = "Attack the middle row for 5 damage";
     private int m_MANA_COST = 1;
+    private int m_COUNTER_MAX_VALUE = 2;
 
-    private void Start()
+    private void Awake()
     {
         initializeCard();
     }
@@ -18,5 +19,6 @@ public class PlantTrickB : BaseCard
         Name.text = m_NAME;
         Effect.text = m_EFFECT;
         ManaCost.text = m_MANA_COST.ToString();
+        Counter = m_COUNTER_MAX_VALUE;
     }
 }

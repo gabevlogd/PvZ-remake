@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Deck : MonoBehaviour
+public class DeckOld : MonoBehaviour
 {
-    public Player Player;
+    //public Player Player;
     public int[] Counters;
 
     private void Start()
@@ -20,19 +20,19 @@ public class Deck : MonoBehaviour
 
     public void Draw()
     {
-        int index = Random.Range(0, 10);
-        if(Player.squad == Squad.Zombies)
-        {
-            while (CardsInventory.Instance.ZombiesCards[index].Counter > Counters[index]) index = Random.Range(0, 10);
-            Card cardDrawn = new Card(Player.squad, (CardType)index);
-            Player.Hand.Add(cardDrawn);
-        }
-        else
-        {
-            while (CardsInventory.Instance.PlantsCards[index].Counter > Counters[index]) index = Random.Range(0, 10);
-            Card cardDrawn = new Card(Player.squad, (CardType)index);
-            Player.Hand.Add(cardDrawn);
-        }
+        //int index = Random.Range(0, 10);
+        //if(Player.squad == Squad.Zombies)
+        //{
+        //    while (CardsInventory.Instance.ZombiesCards[index].Counter > Counters[index]) index = Random.Range(0, 10);
+        //    Card cardDrawn = new Card(Player.squad, (CardType)index);
+        //    Player.Hand.Add(cardDrawn);
+        //}
+        //else
+        //{
+        //    while (CardsInventory.Instance.PlantsCards[index].Counter > Counters[index]) index = Random.Range(0, 10);
+        //    Card cardDrawn = new Card(Player.squad, (CardType)index);
+        //    Player.Hand.Add(cardDrawn);
+        //}
     }
 
     private void InitializeCounters()

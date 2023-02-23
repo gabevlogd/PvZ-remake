@@ -316,7 +316,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 137759671}
-  - component: {fileID: 137759670}
   m_Layer: 0
   m_Name: PlayerTwo
   m_TagString: Untagged
@@ -324,25 +323,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &137759670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137759669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0379f2272c694c46a71d6085aefdf3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hand: []
-  Instance: {fileID: 0}
-  deck: {fileID: 0}
-  squad: 0
-  LifePoint: 0
-  ManaBase: 0
-  CardsInHand: 0
 --- !u!4 &137759671
 Transform:
   m_ObjectHideFlags: 0
@@ -406,6 +386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoneType: 0
   Selected: 0
+  Taken: 0
   m_selectionFeedback: {fileID: 0}
 --- !u!65 &280724627
 BoxCollider:
@@ -473,6 +454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoneType: 0
   Selected: 0
+  Taken: 0
   m_selectionFeedback: {fileID: 0}
 --- !u!114 &348440794
 MonoBehaviour:
@@ -621,6 +603,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &412539304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 412539306}
+  - component: {fileID: 412539305}
+  m_Layer: 0
+  m_Name: Decks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &412539305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412539304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81eb870a21a83a74899ed39ed34e3faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlantsDeck:
+  - {fileID: 2221745131758945207, guid: c539f288e6dfa1a48a2267c6b4a81fee, type: 3}
+  - {fileID: 7314384438595365356, guid: bde40a26e1516d74b8d431b58fd43e4d, type: 3}
+  - {fileID: 4989305041185574781, guid: 1354ad253016c874cbe10300daa07882, type: 3}
+  - {fileID: 2671074415660780648, guid: 74c378566208cb34fa707bd9658a3989, type: 3}
+  - {fileID: 7290802876018173764, guid: 023216ac5cafc724698f9727c2736337, type: 3}
+  - {fileID: 4721680617001237724, guid: 9aa78b9f315fb78409f7912cf278fa88, type: 3}
+  - {fileID: 798844906756458938, guid: 2d9784e9891d9964a8baa98fe7cc891f, type: 3}
+  - {fileID: 6869118740917656595, guid: 922bc0b13b2f20f4880224ae1fee8b45, type: 3}
+  - {fileID: 6280850966812951305, guid: 8d04904b7e0bbc440ac5dc9f44329de5, type: 3}
+  - {fileID: 6600119942131920372, guid: 51655699cd310a64a8634750df06530b, type: 3}
+  ZombiesDeck: []
+--- !u!4 &412539306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412539304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &473598581
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,16 +899,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 511059749}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0379f2272c694c46a71d6085aefdf3b, type: 3}
+  m_Script: {fileID: 11500000, guid: aa13c6b350872874eaa156492112a0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hand: []
   Instance: {fileID: 0}
-  deck: {fileID: 1727904651}
+  Hand: {fileID: 1589132353}
   squad: 1
   LifePoint: 0
   ManaBase: 0
-  CardsInHand: 0
 --- !u!4 &511059751
 Transform:
   m_ObjectHideFlags: 0
@@ -1170,6 +1205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoneType: 0
   Selected: 0
+  Taken: 0
   m_selectionFeedback: {fileID: 0}
 --- !u!1 &764815272
 GameObject:
@@ -1433,7 +1469,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1043069167}
-  - component: {fileID: 1043069168}
   m_Layer: 0
   m_Name: PlayerTwoDeck
   m_TagString: Untagged
@@ -1455,20 +1490,6 @@ Transform:
   m_Father: {fileID: 137759671}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1043069168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043069166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14b1433fc975ce24dad777511b177e32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Counters: 
 --- !u!1 &1197089801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,6 +1779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoneType: 0
   Selected: 0
+  Taken: 0
   m_selectionFeedback: {fileID: 0}
 --- !u!65 &1247574931
 BoxCollider:
@@ -2101,6 +2123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoneType: 0
   Selected: 0
+  Taken: 0
   m_selectionFeedback: {fileID: 0}
 --- !u!65 &1393076662
 BoxCollider:
@@ -2376,6 +2399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoneType: 0
   Selected: 0
+  Taken: 0
   m_selectionFeedback: {fileID: 0}
 --- !u!65 &1467592766
 BoxCollider:
@@ -2491,6 +2515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoneType: 0
   Selected: 0
+  Taken: 0
   m_selectionFeedback: {fileID: 0}
 --- !u!65 &1518683616
 BoxCollider:
@@ -2810,7 +2835,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1727904650}
-  - component: {fileID: 1727904651}
   m_Layer: 0
   m_Name: PlayerOneDeck
   m_TagString: Untagged
@@ -2832,20 +2856,6 @@ Transform:
   m_Father: {fileID: 511059751}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1727904651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1727904649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14b1433fc975ce24dad777511b177e32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 511059750}
-  Counters: 
 --- !u!1 &1957026361
 GameObject:
   m_ObjectHideFlags: 0

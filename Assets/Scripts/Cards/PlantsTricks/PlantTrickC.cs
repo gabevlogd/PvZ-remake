@@ -7,8 +7,9 @@ public class PlantTrickC : BaseCard
     private string m_NAME = "Expand";
     private string m_EFFECT = "A plant gets +2/+2";
     private int m_MANA_COST = 1;
+    private int m_COUNTER_MAX_VALUE = 2;
 
-    private void Start()
+    private void Awake()
     {
         initializeCard();
     }
@@ -18,5 +19,6 @@ public class PlantTrickC : BaseCard
         Name.text = m_NAME;
         Effect.text = m_EFFECT;
         ManaCost.text = m_MANA_COST.ToString();
+        Counter = m_COUNTER_MAX_VALUE;
     }
 }

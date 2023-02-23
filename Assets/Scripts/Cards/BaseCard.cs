@@ -10,6 +10,7 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Text Name;
     public Text Effect;
     public Text ManaCost;
+    [HideInInspector] public int Counter;
 
 
     public virtual void OnPointerEnter(PointerEventData eventData)
