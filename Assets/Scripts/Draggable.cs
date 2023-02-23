@@ -38,12 +38,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         //Debug.Log("OnEndDrag");
         foreach(DropZone dropZone in DropZones)
         {
-            if (dropZone.Selected)
+            if (dropZone.Selected && !dropZone.Taken)
             {
                 //Debug.Log(dropZone.name);
                 GameObject prefabForBattlefield = eventData.pointerDrag.GetComponent<BaseCard>().PrefabForBattlefield;
                 Instantiate(prefabForBattlefield, dropZone.transform.position, prefabForBattlefield.transform.rotation);
                 Destroy(eventData.pointerDrag);
+                dropZone.Taken = true;
                 return;
             }
         }
