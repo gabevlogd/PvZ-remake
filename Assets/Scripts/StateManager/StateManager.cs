@@ -1,11 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StateManager : MonoBehaviour
 {
+    public static StateManager Instance;
     public State CurrentState;
     public Dictionary<StateType, State> States;
+    public UnityEvent OnChangeState;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -20,7 +29,7 @@ public class StateManager : MonoBehaviour
         CurrentState.StateUpdate();
     }
 
-    private void ChangeState(StateType stateType)
+    public void ChangeState(StateType stateType)
     {
         CurrentState.Exit();
         CurrentState = States[stateType];
@@ -29,6 +38,7 @@ public class StateManager : MonoBehaviour
 
     private void InitializeStates()
     {
+        States = new Dictionary<StateType, State>();
         States.Add(StateType.Mulligan, new MulliganState());
         States.Add(StateType.PreRound, new PreRoundState());
         States.Add(StateType.ZombiesTurn, new ZombiesTurnState());

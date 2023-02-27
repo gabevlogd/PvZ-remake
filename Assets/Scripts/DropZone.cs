@@ -8,7 +8,7 @@ public class DropZone : MonoBehaviour
     public ZoneType zoneType;
     [HideInInspector] public bool Selected;
     [HideInInspector] public bool Taken;
-    public SpriteRenderer m_selectionFeedback;
+    private SpriteRenderer m_selectionFeedback;
 
     private void Awake()
     {
@@ -44,25 +44,4 @@ public enum ZoneType
     Water
 }
 
-//public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
-//{
-//    public ZoneType zoneType;
-//    public void OnPointerEnter(PointerEventData eventData)
-//    {
-//        Debug.Log("OnPointerEnter");
-//    }
 
-//    public void OnPointerExit(PointerEventData eventData)
-//    {
-//        Debug.Log("OnPointerExit");
-//    }
-
-//    public void OnDrop(PointerEventData eventData)
-//    {
-//        Debug.Log("OnDrop");
-//        //Draggable draggable = eventData.pointerDrag.GetComponent<Draggable>();
-
-
-//    }
-
-//}

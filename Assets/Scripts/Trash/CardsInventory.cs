@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CardsInventory : MonoBehaviour
 {
-    public Trick[] PlantsCards;
-    public Trick[] ZombiesCards;
+    public BaseCard[] PlantsCards;
+    public BaseCard[] ZombiesCards;
     public static CardsInventory Instance;
 
     private void Awake()

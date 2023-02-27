@@ -11,38 +11,38 @@ public class Card : Object
     {
         //print("enter");
         cardType = type;
-        InitializeCard(squad);
+        //InitializeCard(squad);
     }
-    public virtual void InitializeCard(Squad squad)
-    {
-        if(squad == Squad.Zombies)
-        {
-            Data = CardsInventory.Instance.ZombiesCards[(int)cardType];
-            Data.Counter++;
-        }
-        else
-        {
-            Data = CardsInventory.Instance.PlantsCards[(int)cardType];
-            Data.Counter++;
+    //public virtual void InitializeCard(Squad squad)
+    //{
+    //    if(squad == Squad.Zombies)
+    //    {
+    //        Data = CardsInventory.Instance.ZombiesCards[(int)cardType];
+    //        Data.Counter++;
+    //    }
+    //    else
+    //    {
+    //        Data = CardsInventory.Instance.PlantsCards[(int)cardType];
+    //        Data.Counter++;
 
-        }
-    }
+    //    }
+    //}
 
     
 
 }
 
-public enum CardType
-{
-    TrickA,
-    TrickB,
-    TrickC,
-    TrickD,
-    TrickE,
-    CreatureA,
-    CreatureB,
-    CreatureC,
-    CreatureD,
-    CreatureE
-}
+//public enum CardType
+//{
+//    TrickA,
+//    TrickB,
+//    TrickC,
+//    TrickD,
+//    TrickE,
+//    CreatureA,
+//    CreatureB,
+//    CreatureC,
+//    CreatureD,
+//    CreatureE
+//}
 

@@ -11,14 +11,15 @@ public class PlantTrickD : BaseCard
 
     private void Awake()
     {
-        initializeCard();
+        InitializeCard();
     }
 
-    private void initializeCard()
+    public override void InitializeCard()
     {
         Name.text = m_NAME;
         Effect.text = m_EFFECT;
         ManaCost.text = m_MANA_COST.ToString();
         Counter = m_COUNTER_MAX_VALUE;
+        Type = CardType.Plant;
     }
 }

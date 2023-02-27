@@ -23,8 +23,7 @@ public class Player : MonoBehaviour
         Instance = this;
         LifePoint = 20;
         ManaBase = 1;
-        //DrawN(4);
-        Draw();
+        DrawN(4);
     }
 
     /// <summary>
@@ -32,18 +31,22 @@ public class Player : MonoBehaviour
     /// </summary>
     public void Draw()
     {
-        if(squad == Squad.Plants)
+        if(squad == Squad.Plants && Deck.Instance.PlantsCardsDrawn < 40)
         {
-            int randomCard = Random.Range(0, Deck.Instance.PlantsDeck.Length);
-            while(Deck.Instance.PlantsDeck[randomCard].Counter <= 0) randomCard = Random.Range(0, Deck.Instance.PlantsDeck.Length);
+            int randomCard;
+            do randomCard = Random.Range(0, Deck.Instance.PlantsDeck.Length);
+            while (Deck.Instance.PlantsDeck[randomCard].Counter <= 0);
             Deck.Instance.PlantsDeck[randomCard].Counter--;
+            Deck.Instance.PlantsCardsDrawn++;
             Instantiate(Deck.Instance.PlantsDeck[randomCard], Hand.transform);
         }
-        else
+        else if (squad == Squad.Zombies && Deck.Instance.ZombiesCardsDrawn < 40)//REMEMBER: first condition do not needed 
         {
-            int randomCard = Random.Range(0, Deck.Instance.ZombiesDeck.Length);
-            while (Deck.Instance.ZombiesDeck[randomCard].Counter <= 0) randomCard = Random.Range(0, Deck.Instance.ZombiesDeck.Length);
+            int randomCard;
+            do randomCard = Random.Range(0, Deck.Instance.ZombiesDeck.Length);
+            while (Deck.Instance.ZombiesDeck[randomCard].Counter <= 0);
             Deck.Instance.ZombiesDeck[randomCard].Counter--;
+            Deck.Instance.ZombiesCardsDrawn++;
             Instantiate(Deck.Instance.ZombiesDeck[randomCard], Hand.transform);
         }
     }

@@ -7,10 +7,12 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 {
     public Transform ParentToReturnTo;
     public DropZone[] DropZones;
+    [HideInInspector] public bool CanBeDrag;
     private CanvasGroup m_canvasGroup;
 
     private void Awake()
     {
+        CanBeDrag = false;
         m_canvasGroup = GetComponent<CanvasGroup>();
         DropZones = new DropZone[5];
         for(int i = 0; i < 5; i++)
@@ -22,33 +24,40 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public void OnBeginDrag(PointerEventData eventData)
     {
         //Debug.Log("OnBeginDrag");
-        m_canvasGroup.blocksRaycasts = false;
-        ParentToReturnTo = transform.parent;
-        transform.SetParent(transform.parent.parent);
+        if (CanBeDrag)
+        {
+            m_canvasGroup.blocksRaycasts = false;
+            ParentToReturnTo = transform.parent;
+            transform.SetParent(transform.parent.parent);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         //Debug.Log("OnDrag");
-        transform.position = eventData.position;
+        if (CanBeDrag) transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         //Debug.Log("OnEndDrag");
-        foreach(DropZone dropZone in DropZones)
+        if (CanBeDrag)
         {
-            if (dropZone.Selected && !dropZone.Taken)
+            foreach (DropZone dropZone in DropZones)
             {
-                //Debug.Log(dropZone.name);
-                GameObject prefabForBattlefield = eventData.pointerDrag.GetComponent<BaseCard>().PrefabForBattlefield;
-                Instantiate(prefabForBattlefield, dropZone.transform.position, prefabForBattlefield.transform.rotation);
-                Destroy(eventData.pointerDrag);
-                dropZone.Taken = true;
-                return;
+                if (dropZone.Selected && !dropZone.Taken)
+                {
+                    //Debug.Log(dropZone.name);
+                    GameObject prefabForBattlefield = eventData.pointerDrag.GetComponent<BaseCard>().PrefabForBattlefield;
+                    Instantiate(prefabForBattlefield, dropZone.transform.position, prefabForBattlefield.transform.rotation);
+                    Destroy(eventData.pointerDrag);
+                    dropZone.Taken = true;
+                    return;
+                }
             }
+            transform.SetParent(ParentToReturnTo);
+            m_canvasGroup.blocksRaycasts = true;
         }
-        transform.SetParent(ParentToReturnTo);
-        m_canvasGroup.blocksRaycasts = true;
+        
     }
 }
