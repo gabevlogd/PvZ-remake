@@ -3,35 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class DropZone : MonoBehaviour
 {
     public ZoneType zoneType;
-    public void OnPointerEnter(PointerEventData eventData)
+    [HideInInspector] public bool Selected;
+    [HideInInspector] public bool Taken;
+    private SpriteRenderer m_selectionFeedback;
+
+    private void Awake()
     {
-        Debug.Log("OnPointerEnter");
+        m_selectionFeedback = GetComponentInChildren<SpriteRenderer>();
+        Taken = false;
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    private void OnMouseEnter()
     {
-        Debug.Log("OnPointerExit");
+        //print("enter");
+        if (Input.GetKey(KeyCode.Mouse0) && !Taken) m_selectionFeedback.color = new Color(m_selectionFeedback.color.r, m_selectionFeedback.color.g, m_selectionFeedback.color.b, 0.3f);
+        Selected = true;
     }
 
-    public void OnDrop(PointerEventData eventData)
+    private void OnMouseExit()
     {
-        Debug.Log("OnDrop");
-        Draggable draggable = eventData.pointerDrag.GetComponent<Draggable>();
-        if(zoneType == ZoneType.Battlefield)
-        {
-            
-        }
-        draggable.ParentToReturnTo = transform;
+        //print("exit");
+        m_selectionFeedback.color = new Color(m_selectionFeedback.color.r, m_selectionFeedback.color.g, m_selectionFeedback.color.b, 0f);
+        Selected = false;
+    }
 
+    private void OnMouseUp()
+    {
+        //print("Drop");
     }
 
 }
 
 public enum ZoneType
 {
-    Battlefield,
-    Hand
+    Standard,
+    Elevated,
+    Water
 }
+
+
