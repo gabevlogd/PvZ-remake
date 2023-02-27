@@ -12,13 +12,28 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     private void Awake()
     {
-        CanBeDrag = false;
+        CanBeDrag = true;
         m_canvasGroup = GetComponent<CanvasGroup>();
         DropZones = new DropZone[5];
-        for(int i = 0; i < 5; i++)
+    }
+
+    private void Start()
+    {
+        if (GetComponent<BaseCard>().Type == CardType.Plant)
         {
-            DropZones[i] = GameObject.Find("DZ" + i.ToString()).GetComponent<DropZone>();
+            for (int i = 0; i < 5; i++)
+            {
+                DropZones[i] = GameObject.Find("P1DZ" + i.ToString()).GetComponent<DropZone>();
+            }
         }
+        else
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                DropZones[i] = GameObject.Find("P2DZ" + i.ToString()).GetComponent<DropZone>();
+            }
+        }
+        
     }
 
     public void OnBeginDrag(PointerEventData eventData)

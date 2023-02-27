@@ -10,12 +10,11 @@ public class UIElements : MonoBehaviour
     [Header("Player One Elements")]
     public Canvas CanvasP1;
     public HorizontalLayoutGroup HandP1;
-    public Button[] MulliganButtonsP1;
     [Header("Player Two Elements")]
     public Canvas CanvasP2;
     public HorizontalLayoutGroup HandP2;
-    public Button[] MulliganButtonsP2;
     [Header("Shared Elements")]
+    public Button[] MulliganButtons;
     public Button ReadyButton;
 
     private void Awake()

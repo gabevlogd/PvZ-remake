@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public class PlantTrickA : BaseCard
+public class ZombieTrickE : BaseCard
 {
     private string m_NAME = "The Big Freeze";
     private string m_EFFECT = "freeze a zombie, draw a card";
@@ -22,8 +20,6 @@ public class PlantTrickA : BaseCard
         Effect.text = m_EFFECT;
         ManaCost.text = m_MANA_COST.ToString();
         Counter = m_COUNTER_MAX_VALUE;
-        Type = CardType.Plant;
+        Type = CardType.Zombie;
     }
 }
-
-

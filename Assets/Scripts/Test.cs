@@ -6,11 +6,19 @@ public class Test : MonoBehaviour
 {
     public BaseCard[] Cards;
     public Squad squad;
-    private GameObject Hand;
+    private GameObject HandP1;
+    private GameObject HandP2;
 
     private void Awake()
     {
-        Hand = GameObject.Find("HandP1");
+        HandP1 = GameObject.Find("HandP1");
+        HandP2 = GameObject.Find("HandP2");
+    }
+
+    private void Update()
+    {
+        if (UIElements.Instance.CanvasP1.enabled) squad = Squad.Plants;
+        else if (UIElements.Instance.CanvasP2.enabled) squad = Squad.Zombies;
     }
 
     public void Draw()
@@ -22,7 +30,7 @@ public class Test : MonoBehaviour
             while (Deck.Instance.PlantsDeck[randomCard].Counter <= 0);
             Deck.Instance.PlantsDeck[randomCard].Counter--;
             Deck.Instance.PlantsCardsDrawn++;
-            Instantiate(Deck.Instance.PlantsDeck[randomCard], Hand.transform);
+            Instantiate(Deck.Instance.PlantsDeck[randomCard], HandP1.transform);
         }
         else if (squad == Squad.Zombies && Deck.Instance.ZombiesCardsDrawn < 40)
         {
@@ -31,7 +39,7 @@ public class Test : MonoBehaviour
             while (Deck.Instance.ZombiesDeck[randomCard].Counter <= 0);
             Deck.Instance.ZombiesDeck[randomCard].Counter--;
             Deck.Instance.ZombiesCardsDrawn++;
-            Instantiate(Deck.Instance.ZombiesDeck[randomCard], Hand.transform);
+            Instantiate(Deck.Instance.ZombiesDeck[randomCard], HandP2.transform);
         }
 
     }
