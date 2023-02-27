@@ -8,9 +8,11 @@ public class UIElements : MonoBehaviour
 {
     public static UIElements Instance;
     [Header("Player One Elements")]
+    public Canvas CanvasP1;
     public HorizontalLayoutGroup HandP1;
     public Button[] MulliganButtonsP1;
     [Header("Player Two Elements")]
+    public Canvas CanvasP2;
     public HorizontalLayoutGroup HandP2;
     public Button[] MulliganButtonsP2;
     [Header("Shared Elements")]

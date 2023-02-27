@@ -42,15 +42,13 @@ public class MulliganState : State
     public override void Exit()
     {
         //base.Exit();
-        foreach (Button button in UIElements.Instance.MulliganButtonsP1) button.gameObject.SetActive(false);
-        foreach (Button button in UIElements.Instance.MulliganButtonsP2) button.gameObject.SetActive(false);
         UIElements.Instance.ReadyButton.gameObject.SetActive(false);
     }
 
 
     public static void ReplaceCardButtonUsage()
     {
-        Debug.Log("ReplaceCardButtonUsage");
+        //Debug.Log("ReplaceCardButtonUsage");
         //Debug.Log(EventSystem.current.currentSelectedGameObject.name);
         //Debug.Log(EventSystem.current.currentSelectedGameObject.GetComponent<Button>().FindSelectableOnDown().name);
 
@@ -71,7 +69,7 @@ public class MulliganState : State
 
     public static void ReadyButton()
     {
-        Debug.Log("ReadyButtonP1");
+        //Debug.Log("ReadyButton");
         foreach (Selectable card in m_Instance.m_cardsToChange) if (card != null) Destroy(card.gameObject);
         foreach (GameObject card in m_Instance.m_replacedCards)
         {
@@ -82,43 +80,26 @@ public class MulliganState : State
             } 
         }
 
+        if (m_Instance.m_playersReady < 2) m_Instance.OnMulliganExitP1();
+        else m_Instance.OnMulliganExitP2();
+
+    }
+
+    public void OnMulliganExitP1()
+    {
+        Debug.Log("OnMulliganExitP1");
+        foreach (Button button in UIElements.Instance.MulliganButtonsP1) button.gameObject.SetActive(false);
         m_Instance.m_cardsToChange = new Selectable[4];
         m_Instance.m_replacedCards = new GameObject[4];
         m_Instance.m_index = 0;
         m_Instance.m_playersReady++;
     }
 
+    public void OnMulliganExitP2()
+    {
+        Debug.Log("OnMulliganExitP2");
+        foreach (Button button in UIElements.Instance.MulliganButtonsP2) button.gameObject.SetActive(false);
+    }
+
 
 }
-
-    //public static void ChangeButtonUsage()
-    //{
-    //    Debug.Log("ChangeButtonUsage");
-    //    //Debug.Log(EventSystem.current.currentSelectedGameObject.name);
-    //    //Debug.Log(EventSystem.current.currentSelectedGameObject.GetComponent<Button>().FindSelectableOnDown().name);
-    //    BaseCard cardToChange = EventSystem.current.currentSelectedGameObject.GetComponent<Button>().FindSelectableOnDown().GetComponent<BaseCard>();
-    //    BaseCard newCard;
-    //    cardToChange.Counter++;
-    //    if (cardToChange.Type == CardType.Plant) newCard = Instantiate(Deck.Instance.PlantsDeck[Random.Range(0, Deck.Instance.PlantsDeck.Length)], cardToChange.transform.position, Quaternion.identity);
-    //    else newCard = Instantiate(Deck.Instance.ZombiesDeck[Random.Range(0, Deck.Instance.ZombiesDeck.Length)], cardToChange.transform.position, Quaternion.identity);
-    //    newCard.transform.SetParent(EventSystem.current.currentSelectedGameObject.transform.parent);
-    //    Destroy(cardToChange.gameObject);
-    //    EventSystem.current.currentSelectedGameObject.SetActive(false);
-    //}
-
-    //public static void ChangeButtonUsage()
-    //{
-    //    Debug.Log("ChangeButtonUsage");
-    //    //Debug.Log(EventSystem.current.currentSelectedGameObject.name);
-    //    //Debug.Log(EventSystem.current.currentSelectedGameObject.GetComponent<Button>().FindSelectableOnDown().name);
-    //    Selectable cardToChange = EventSystem.current.currentSelectedGameObject.GetComponent<Button>().FindSelectableOnDown()/*.GetComponent<BaseCard>()*/;
-    //    BaseCard newCard;
-
-    //    if (cardToChange.GetComponent<BaseCard>().Type == CardType.Plant) newCard = Deck.Instance.PlantsDeck[Random.Range(0, Deck.Instance.PlantsDeck.Length)];
-    //    else newCard = Deck.Instance.ZombiesDeck[Random.Range(0, Deck.Instance.ZombiesDeck.Length)];
-
-    //    cardToChange.GetComponent<BaseCard>().Counter++;
-    //    Destroy(cardToChange.GetComponent<BaseCard>());
-    //    var newComponent = newCard.GetComponent<BaseCard>();
-    //    cardToChange.gameObject.AddComponent(typeof());
-    //}

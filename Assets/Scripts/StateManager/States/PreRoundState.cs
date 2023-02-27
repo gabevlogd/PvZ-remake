@@ -11,6 +11,7 @@ public class PreRoundState : State
     public override void Enter()
     {
         //base.Enter();
+        //Debug.Log("PreRoundEnter");
     }
     public override void StateUpdate()
     {
