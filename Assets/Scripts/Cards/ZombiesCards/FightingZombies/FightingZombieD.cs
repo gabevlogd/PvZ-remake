@@ -28,6 +28,7 @@ public class FightingZombieD : BaseCard
         ManaCost.text = m_MANA_COST.ToString();
         Counter = m_COUNTER_MAX_VALUE;
         Type = CardType.Zombie;
+        Subtype = CardSubtype.Fighting;
         Power.text = POWER.ToString();
         Defense.text = DEFENSE.ToString();
     }

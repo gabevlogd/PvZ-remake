@@ -21,5 +21,6 @@ public class PlantTrickC : BaseCard
         ManaCost.text = m_MANA_COST.ToString();
         Counter = m_COUNTER_MAX_VALUE;
         Type = CardType.Plant;
+        Subtype = CardSubtype.Trick;
     }
 }

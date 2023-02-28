@@ -6,14 +6,8 @@ public class Test : MonoBehaviour
 {
     public BaseCard[] Cards;
     public Squad squad;
-    private GameObject HandP1;
-    private GameObject HandP2;
-
-    private void Awake()
-    {
-        HandP1 = GameObject.Find("HandP1");
-        HandP2 = GameObject.Find("HandP2");
-    }
+    public GameObject HandP1;
+    public GameObject HandP2;
 
     private void Update()
     {

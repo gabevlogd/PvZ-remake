@@ -57,8 +57,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                     //Debug.Log(dropZone.name);
                     GameObject prefabForBattlefield = eventData.pointerDrag.GetComponent<BaseCard>().PrefabForBattlefield;
                     Instantiate(prefabForBattlefield, dropZone.transform.position, prefabForBattlefield.transform.rotation);
-                    Destroy(eventData.pointerDrag);
-                    dropZone.Taken = true;
+                    if (eventData.pointerDrag.GetComponent<BaseCard>().Subtype == CardSubtype.Fighting)
+                    {
+                        dropZone.Taken = true;
+                        dropZone.CardOnZone = eventData.pointerDrag.GetComponent<BaseCard>();
+                        eventData.pointerDrag.SetActive(false);
+                    }
+                    else Destroy(eventData.pointerDrag);
                     return;
                 }
             }
@@ -75,6 +80,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         if (StateManager.Instance.CurrentState.StateType == StateType.PlantsTurn && Int32.Parse(GetComponent<BaseCard>().ManaCost.text) <= UIElements.Instance.PlayerOne.ManaBase) CanBeDrag = true;
         else if (StateManager.Instance.CurrentState.StateType == StateType.ZombiesTurn && Int32.Parse(GetComponent<BaseCard>().ManaCost.text) <= UIElements.Instance.PlayerTwo.ManaBase) CanBeDrag = true;
+        else if (StateManager.Instance.CurrentState.StateType == StateType.ZombiesTricks && GetComponent<BaseCard>().Subtype == CardSubtype.Trick && Int32.Parse(GetComponent<BaseCard>().ManaCost.text) <= UIElements.Instance.PlayerTwo.ManaBase) CanBeDrag = true;
         else if (CanBeDrag) CanBeDrag = false;
     }
 

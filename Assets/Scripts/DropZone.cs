@@ -8,6 +8,7 @@ public class DropZone : MonoBehaviour
     public ZoneType zoneType;
     [HideInInspector] public bool Selected;
     [HideInInspector] public bool Taken;
+    /*[HideInInspector]*/ public BaseCard CardOnZone;
     private SpriteRenderer m_selectionFeedback;
 
     private void Awake()

@@ -21,5 +21,6 @@ public class ZombieTrickB : BaseCard
         ManaCost.text = m_MANA_COST.ToString();
         Counter = m_COUNTER_MAX_VALUE;
         Type = CardType.Zombie;
+        Subtype = CardSubtype.Trick;
     }
 }

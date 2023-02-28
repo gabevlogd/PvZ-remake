@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     {
         Instance = this;
         LifePoint = 20;
-        ManaBase = 1;
+        ManaBase = 30;
         DrawN(4);
     }
 

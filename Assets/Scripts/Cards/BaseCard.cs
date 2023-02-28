@@ -12,6 +12,7 @@ public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public Text ManaCost;
     [HideInInspector] public int Counter;
     [HideInInspector] public CardType Type;
+    [HideInInspector] public CardSubtype Subtype;
 
 
     public virtual void OnPointerEnter(PointerEventData eventData)
@@ -56,6 +57,12 @@ public enum CardType
 {
     Zombie,
     Plant
+}
+
+public enum CardSubtype
+{
+    Fighting,
+    Trick
 }
 
 

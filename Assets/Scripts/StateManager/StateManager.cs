@@ -9,6 +9,7 @@ public class StateManager : MonoBehaviour
     public static StateManager Instance;
     public State CurrentState;
     public Dictionary<StateType, State> States;
+    public GameObject combatSystem;
     //public UnityEvent OnChangeState;
 
     private void Awake()

@@ -22,15 +22,6 @@ public class PlantTrickE_3D : MonoBehaviour
     private void Start()
     {
         RepresentedCard.ExecuteEffect();
-    }
-
-    private void OnMouseEnter()
-    {
-        RepresentedCard.ShowInfo();
-    }
-
-    private void OnMouseExit()
-    {
-        RepresentedCard.HideInfo();
+        Destroy(gameObject); //Meaningless implementation, but I don't have time
     }
 }
