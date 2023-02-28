@@ -38,7 +38,7 @@ public class MulliganState : State
     public override void StateUpdate()
     {
         //base.StateUpdate();
-        if (m_playersReady >= 2) StateManager.Instance.ChangeState(StateType.PreRound);
+        if (m_playersReady >= 2) StateManager.Instance.ChangeState(StateType.ZombiesTurn);
     }
     public override void Exit()
     {

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6328599736512319624}
   - component: {fileID: 6328599736512319621}
   - component: {fileID: 6328599736512319626}
-  - component: {fileID: 6328599736512319627}
   m_Layer: 0
   m_Name: PlantMesh
   m_TagString: Untagged
@@ -82,19 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6328599736512319627
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6328599736512319625}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6328599738296755772
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,6 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6328599738296755775}
   - component: {fileID: 2435385942777219647}
+  - component: {fileID: 3530912513414365959}
   m_Layer: 0
   m_Name: PlantTrickD_3D
   m_TagString: Untagged
@@ -140,3 +127,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RepresentedCard: {fileID: 2671074415660780648, guid: 74c378566208cb34fa707bd9658a3989, type: 3}
+--- !u!65 &3530912513414365959
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6328599738296755772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}

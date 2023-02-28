@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 246392622996904484}
   - component: {fileID: 7568420573477160979}
+  - component: {fileID: 5511478207461920795}
   m_Layer: 0
   m_Name: FightingPlantD_3D
   m_TagString: Untagged
@@ -47,6 +48,19 @@ MonoBehaviour:
   RepresentedCard: {fileID: 6280850966812951305, guid: 8d04904b7e0bbc440ac5dc9f44329de5, type: 3}
   Power: {fileID: 246392623838378569}
   Defense: {fileID: 246392623840659302}
+--- !u!65 &5511478207461920795
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246392622996904487}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &246392623838378571
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +262,6 @@ GameObject:
   - component: {fileID: 246392624787598483}
   - component: {fileID: 246392624787598494}
   - component: {fileID: 246392624787598481}
-  - component: {fileID: 246392624787598480}
   m_Layer: 0
   m_Name: PlantMesh
   m_TagString: Untagged
@@ -321,16 +334,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &246392624787598480
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246392624787598482}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

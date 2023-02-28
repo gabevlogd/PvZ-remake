@@ -16,17 +16,40 @@ public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public virtual void OnPointerEnter(PointerEventData eventData)
     {
-        ShowInfo();
+        //ShowInfo();
     }
 
     public virtual void OnPointerExit(PointerEventData eventData)
     {
-        HideInfo();
+        //HideInfo();
     }
+    
 
     public abstract void InitializeCard();
-    public virtual void ShowInfo() { }
-    public virtual void HideInfo() { }
+    public virtual void ExecuteEffect()
+    {
+        StartCoroutine(ShowEffectInfo());
+    }
+    public virtual void ShowInfo()
+    {
+        UIElements.Instance.CardInfo.Name.text = "Name: " + Name.text;
+        UIElements.Instance.CardInfo.Effect.text = "Effect: " + Effect.text;
+        UIElements.Instance.CardInfo.ManaCost.text = "Mana cost: " + ManaCost.text;
+        UIElements.Instance.CardInfo.gameObject.SetActive(true);
+    }
+    public virtual void HideInfo()
+    {
+        UIElements.Instance.CardInfo.gameObject.SetActive(false);
+    }
+
+    public IEnumerator ShowEffectInfo()
+    {
+        UIElements.Instance.CardEffect.text = Effect.text;
+        UIElements.Instance.CardEffect.transform.parent.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        UIElements.Instance.CardEffect.transform.parent.gameObject.SetActive(false);
+    }
+
 }
 
 public enum CardType

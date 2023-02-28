@@ -7,12 +7,12 @@ public class Player : MonoBehaviour
     [HideInInspector] public Player Instance;
     public GameObject Hand;
     public Squad squad;
-    [HideInInspector] public int LifePoint;
-    [HideInInspector] public int ManaBase;
+    /*[HideInInspector]*/ public int LifePoint;
+    /*[HideInInspector]*/ public int ManaBase;
 
     private void Start()
     {
-        InitializePlayer();   
+        InitializePlayer();
     }
 
     /// <summary>

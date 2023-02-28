@@ -31,4 +31,16 @@ public class FightingPlantC : BaseCard
         Power.text = POWER.ToString();
         Defense.text = DEFENSE.ToString();
     }
+    public override void ShowInfo()
+    {
+        UIElements.Instance.CardInfo.Power.text = "Power: " + Power.text;
+        UIElements.Instance.CardInfo.Defense.text = "Defense: " + Defense.text;
+        base.ShowInfo();
+    }
+    public override void HideInfo()
+    {
+        UIElements.Instance.CardInfo.Power.text = "";
+        UIElements.Instance.CardInfo.Defense.text = "";
+        base.HideInfo();
+    }
 }

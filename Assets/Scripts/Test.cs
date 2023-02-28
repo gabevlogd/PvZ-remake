@@ -17,8 +17,8 @@ public class Test : MonoBehaviour
 
     private void Update()
     {
-        if (UIElements.Instance.CanvasP1.enabled) squad = Squad.Plants;
-        else if (UIElements.Instance.CanvasP2.enabled) squad = Squad.Zombies;
+        if (UIElements.Instance.CanvasP1.gameObject.activeInHierarchy) squad = Squad.Plants;
+        else if (UIElements.Instance.CanvasP2.gameObject.activeInHierarchy) squad = Squad.Zombies;
     }
 
     public void Draw()
