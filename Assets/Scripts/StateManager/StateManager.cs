@@ -9,11 +9,14 @@ public class StateManager : MonoBehaviour
     public static StateManager Instance;
     public State CurrentState;
     public Dictionary<StateType, State> States;
+    public GameObject combatSystem;
+    public int RoundCounter;
     //public UnityEvent OnChangeState;
 
     private void Awake()
     {
         Instance = this;
+        RoundCounter = 1;
     }
 
     void Start()

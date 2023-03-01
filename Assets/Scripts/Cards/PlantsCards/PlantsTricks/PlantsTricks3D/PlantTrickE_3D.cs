@@ -1,0 +1,26 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlantTrickE_3D : MonoBehaviour
+{
+    public PlantTrickE RepresentedCard;
+
+    private void Awake()
+    {
+        foreach (BaseCard card in Deck.Instance.PlantsDeck)
+        {
+            if (card.TryGetComponent(out PlantTrickE targetCard))
+            {
+                //Debug.Log(targetCard.ManaCost.text);
+                RepresentedCard = targetCard;
+            }
+        }
+    }
+    private void Start()
+    {
+        RepresentedCard.ExecuteEffect();
+        Destroy(gameObject); //Meaningless implementation, but I don't have time
+    }
+}

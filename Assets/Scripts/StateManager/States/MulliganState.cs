@@ -20,12 +20,13 @@ public class MulliganState : State
         m_cardsToChange = new Selectable[4];
         m_replacedCards = new GameObject[4];
         m_index = 0;
+        m_playersReady = 0;
     }
 
 
     public override void Enter()
     {
-        foreach (Button button in UIElements.Instance.MulliganButtonsP1)
+        foreach (Button button in UIElements.Instance.MulliganButtons)
         {
             button.gameObject.SetActive(true);
             button.onClick.AddListener(ReplaceCardButtonUsage);
@@ -37,7 +38,7 @@ public class MulliganState : State
     public override void StateUpdate()
     {
         //base.StateUpdate();
-        if (m_playersReady >= 2) StateManager.Instance.ChangeState(StateType.PreRound);
+        if (m_playersReady >= 2) StateManager.Instance.ChangeState(StateType.ZombiesTurn);
     }
     public override void Exit()
     {
@@ -79,7 +80,7 @@ public class MulliganState : State
                 else card.transform.SetParent(UIElements.Instance.HandP2.transform);
             } 
         }
-
+        m_Instance.m_playersReady++;
         if (m_Instance.m_playersReady < 2) m_Instance.OnMulliganExitP1();
         else m_Instance.OnMulliganExitP2();
 
@@ -87,18 +88,22 @@ public class MulliganState : State
 
     public void OnMulliganExitP1()
     {
-        Debug.Log("OnMulliganExitP1");
-        foreach (Button button in UIElements.Instance.MulliganButtonsP1) button.gameObject.SetActive(false);
+        //Debug.Log("OnMulliganExitP1");
+        Cameras.Instance.CamP1.gameObject.SetActive(false);
+        Cameras.Instance.CamP2.gameObject.SetActive(true);
+        UIElements.Instance.CanvasP1.gameObject.SetActive(false);
+        UIElements.Instance.CanvasP2.gameObject.SetActive(true);
+        foreach (Button button in UIElements.Instance.MulliganButtons) button.gameObject.SetActive(true);
         m_Instance.m_cardsToChange = new Selectable[4];
         m_Instance.m_replacedCards = new GameObject[4];
         m_Instance.m_index = 0;
-        m_Instance.m_playersReady++;
+
     }
 
     public void OnMulliganExitP2()
     {
-        Debug.Log("OnMulliganExitP2");
-        foreach (Button button in UIElements.Instance.MulliganButtonsP2) button.gameObject.SetActive(false);
+        //Debug.Log("OnMulliganExitP2");
+        foreach (Button button in UIElements.Instance.MulliganButtons) button.gameObject.SetActive(false);
     }
 
 

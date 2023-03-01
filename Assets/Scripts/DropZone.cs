@@ -8,6 +8,7 @@ public class DropZone : MonoBehaviour
     public ZoneType zoneType;
     [HideInInspector] public bool Selected;
     [HideInInspector] public bool Taken;
+    /*[HideInInspector]*/ public FightingCard CardOnZone;
     private SpriteRenderer m_selectionFeedback;
 
     private void Awake()
@@ -30,10 +31,6 @@ public class DropZone : MonoBehaviour
         Selected = false;
     }
 
-    private void OnMouseUp()
-    {
-        //print("Drop");
-    }
 
 }
 
