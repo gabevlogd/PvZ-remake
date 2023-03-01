@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ZombieTrickB : BaseCard
 {
-    private string m_NAME = "The Big Freeze";
-    private string m_EFFECT = "freeze a zombie, draw a card";
+    private string m_NAME = "T Zombie B";
+    private string m_EFFECT = "Attack the middle row for 5 damage";
     private int m_MANA_COST = 1;
     private int m_COUNTER_MAX_VALUE = 2;
 

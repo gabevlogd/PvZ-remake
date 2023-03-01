@@ -55,12 +55,17 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 if (dropZone.Selected && !dropZone.Taken)
                 {
                     //Debug.Log(dropZone.name);
+                    if (StateManager.Instance.CurrentState.StateType == StateType.ZombiesTurn) UIElements.Instance.PlayerTwo.ManaBase -= Int32.Parse(eventData.pointerDrag.GetComponent<BaseCard>().ManaCost.text);
+                    else UIElements.Instance.PlayerOne.ManaBase -= Int32.Parse(eventData.pointerDrag.GetComponent<BaseCard>().ManaCost.text);
+
                     GameObject prefabForBattlefield = eventData.pointerDrag.GetComponent<BaseCard>().PrefabForBattlefield;
-                    Instantiate(prefabForBattlefield, dropZone.transform.position, prefabForBattlefield.transform.rotation);
+                    GameObject instantiatedPrefab = Instantiate(prefabForBattlefield, dropZone.transform.position, prefabForBattlefield.transform.rotation);
+
                     if (eventData.pointerDrag.GetComponent<BaseCard>().Subtype == CardSubtype.Fighting)
                     {
                         dropZone.Taken = true;
-                        dropZone.CardOnZone = eventData.pointerDrag.GetComponent<BaseCard>();
+                        dropZone.CardOnZone = eventData.pointerDrag.GetComponent<FightingCard>();
+                        instantiatedPrefab.GetComponent<FightingCard3D>().RepresentedCard = dropZone.CardOnZone;
                         eventData.pointerDrag.SetActive(false);
                     }
                     else Destroy(eventData.pointerDrag);

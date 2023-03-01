@@ -4,17 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class FightingZombieA : BaseCard
+public class FightingZombieA : FightingCard
 {
-    private string m_NAME = "Boletus";
-    private string m_EFFECT = "When enters the battlefield: another plant gets +2/+2";
+    private string m_NAME = "F Zombie A";
+    private string m_EFFECT = "When enters the battlefield: another zombie gets +2/+2";
     private int m_MANA_COST = 3;
     private int m_COUNTER_MAX_VALUE = 6;
     [HideInInspector] public int POWER = 2;
     [HideInInspector] public int DEFENSE = 1;
 
-    public Text Power;
-    public Text Defense;
 
     private void Awake()
     {

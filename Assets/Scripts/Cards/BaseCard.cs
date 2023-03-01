@@ -29,7 +29,7 @@ public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public abstract void InitializeCard();
     public virtual void ExecuteEffect()
     {
-        StartCoroutine(ShowEffectInfo());
+        //StartCoroutine(ShowEffectInfo());
     }
     public virtual void ShowInfo()
     {

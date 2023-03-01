@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class FightingPlantC : BaseCard
+public class FightingPlantC : FightingCard
 {
     private string m_NAME = "Frost Shooter";
     private string m_EFFECT = "When it damages a zombie, it freezes it";
@@ -13,8 +13,6 @@ public class FightingPlantC : BaseCard
     [HideInInspector] public int POWER = 2;
     [HideInInspector] public int DEFENSE = 2;
 
-    public Text Power;
-    public Text Defense;
 
     private void Awake()
     {

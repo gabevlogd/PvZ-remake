@@ -17,8 +17,6 @@ public class ZombieTrickA_3D : MonoBehaviour
                 RepresentedCard = targetCard;
             }
         }
-
-        UIElements.Instance.PlayerTwo.ManaBase -= Int32.Parse(RepresentedCard.ManaCost.text);
     }
     private void Start()
     {

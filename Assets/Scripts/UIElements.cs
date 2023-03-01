@@ -24,6 +24,10 @@ public class UIElements : MonoBehaviour
     public Button[] MulliganButtons;
     public Button ReadyButton;
     public Button PassButton;
+    public Button NewGameButton;
+    public Button ExitButton;
+    public Image PlantsWon;
+    public Image ZombiesWon;
     public Text CardEffect;
     public CardInfo CardInfo;
 

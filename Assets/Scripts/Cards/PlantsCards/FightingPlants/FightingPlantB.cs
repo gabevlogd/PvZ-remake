@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class FightingPlantB : BaseCard
+public class FightingPlantB : FightingCard
 {
     private string m_NAME = "Seeds Shooter";
     private string m_EFFECT = "Double Attack";
@@ -13,8 +13,6 @@ public class FightingPlantB : BaseCard
     [HideInInspector] public int POWER = 2;
     [HideInInspector] public int DEFENSE = 2;
 
-    public Text Power;
-    public Text Defense;
 
     private void Awake()
     {

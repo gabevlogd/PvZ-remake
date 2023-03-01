@@ -17,7 +17,6 @@ public class PlantTrickA_3D : MonoBehaviour
                 RepresentedCard = targetCard;
             }
         }
-        UIElements.Instance.PlayerOne.ManaBase -= Int32.Parse(RepresentedCard.ManaCost.text);
     }
     private void Start()
     {

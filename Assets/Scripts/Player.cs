@@ -7,8 +7,8 @@ public class Player : MonoBehaviour
     [HideInInspector] public Player Instance;
     public GameObject Hand;
     public Squad squad;
-    /*[HideInInspector]*/ public int LifePoint;
-    /*[HideInInspector]*/ public int ManaBase;
+    [HideInInspector] public int LifePoint;
+    [HideInInspector] public int ManaBase;
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     {
         Instance = this;
         LifePoint = 20;
-        ManaBase = 30;
+        ManaBase = 1;
         DrawN(4);
     }
 

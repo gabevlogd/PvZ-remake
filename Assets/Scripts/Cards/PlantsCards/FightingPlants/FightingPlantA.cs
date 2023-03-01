@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class FightingPlantA : BaseCard
+public class FightingPlantA : FightingCard
 {
     private string m_NAME = "Boletus";
     private string m_EFFECT = "When enters the battlefield: another plant gets +2/+2";
@@ -13,8 +13,6 @@ public class FightingPlantA : BaseCard
     [HideInInspector] public int POWER = 2;
     [HideInInspector] public int DEFENSE = 1;
 
-    public Text Power;
-    public Text Defense;
 
     private void Awake()
     {

@@ -24,6 +24,11 @@ public class CombatState : State
     public override void StateUpdate()
     {
         //base.StateUpdate();
+        if (CombatSystem.FightEnded)
+        {
+            Destroy(StateManager.Instance.combatSystem.GetComponent<CombatSystem>());
+            StateManager.Instance.ChangeState(StateType.PostRound);
+        }
     }
     public override void Exit()
     {

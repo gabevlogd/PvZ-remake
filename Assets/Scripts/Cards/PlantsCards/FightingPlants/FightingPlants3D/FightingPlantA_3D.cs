@@ -3,30 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FightingPlantA_3D : MonoBehaviour
+public class FightingPlantA_3D : FightingCard3D
 {
-    public FightingPlantA RepresentedCard;
-    public TextMesh Power;
-    public TextMesh Defense;
 
     private void Awake()
     {
-        foreach (BaseCard card in Deck.Instance.PlantsDeck)
-        {
-            if (card.TryGetComponent(out FightingPlantA targetCard))
-            {
-                //Debug.Log(targetCard.ManaCost.text);
-                RepresentedCard = targetCard;
-            }
-        }
-        UIElements.Instance.PlayerOne.ManaBase -= Int32.Parse(RepresentedCard.ManaCost.text);
-        Power.text = RepresentedCard.POWER.ToString();
-        Defense.text = RepresentedCard.DEFENSE.ToString();
+        Power.text = RepresentedCard.Power.text;
+        Defense.text = RepresentedCard.Defense.text;
     }
 
     private void Start()
     {
         RepresentedCard.ExecuteEffect();
+    }
+
+    private void Update()
+    {
+        Power.text = RepresentedCard.Power.text;
+        Defense.text = RepresentedCard.Defense.text;
+        if (Int32.Parse(Defense.text) <= 0) Destroy(gameObject, 2f);
     }
 
     private void OnMouseEnter()

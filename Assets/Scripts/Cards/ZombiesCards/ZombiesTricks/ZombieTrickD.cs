@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ZombieTrickD : BaseCard
 {
-    private string m_NAME = "The Big Freeze";
-    private string m_EFFECT = "freeze a zombie, draw a card";
-    private int m_MANA_COST = 1;
+    private string m_NAME = "T Zombie D";
+    private string m_EFFECT = "A zombie gets +3/+3";
+    private int m_MANA_COST = 3;
     private int m_COUNTER_MAX_VALUE = 2;
 
     private void Awake()

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class FightingPlantD : BaseCard
+public class FightingPlantD : FightingCard
 {
     private string m_NAME = "Burning Log";
     private string m_EFFECT = "The seeds shooter behind him gets +2/+0";
@@ -13,8 +13,6 @@ public class FightingPlantD : BaseCard
     [HideInInspector] public int POWER = 0;
     [HideInInspector] public int DEFENSE = 3;
 
-    public Text Power;
-    public Text Defense;
 
     private void Awake()
     {

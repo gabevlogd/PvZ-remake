@@ -20,6 +20,7 @@ public class ZombiesTurnState : State
         UIElements.Instance.CanvasP2.gameObject.SetActive(true);
         UIElements.Instance.PassButton.gameObject.SetActive(true);
         UIElements.Instance.PassButton.onClick.AddListener(PassButtonUsage);
+        UIElements.Instance.PlayerTwo.Draw();
     }
     public override void StateUpdate()
     {

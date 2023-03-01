@@ -18,8 +18,7 @@ public class PlantsTurnState : State
 
         UIElements.Instance.CanvasP1.gameObject.SetActive(true);
         UIElements.Instance.CanvasP2.gameObject.SetActive(false);
-        //UIElements.Instance.PassButton.gameObject.SetActive(true);
-        //UIElements.Instance.PassButton.onClick.AddListener(PassButtonUsage);
+        UIElements.Instance.PlayerOne.Draw();
     }
     public override void StateUpdate()
     {

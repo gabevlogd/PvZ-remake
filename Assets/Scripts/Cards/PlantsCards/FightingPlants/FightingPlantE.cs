@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class FightingPlantE : BaseCard
+public class FightingPlantE : FightingCard
 {
     private string m_NAME = "Aviator Seeds Shooter";
     private string m_EFFECT = "when enters the battlefield on elevated surfaces: it gets +2/+2";
@@ -13,8 +13,6 @@ public class FightingPlantE : BaseCard
     [HideInInspector] public int POWER = 3;
     [HideInInspector] public int DEFENSE = 2;
 
-    public Text Power;
-    public Text Defense;
 
     private void Awake()
     {
